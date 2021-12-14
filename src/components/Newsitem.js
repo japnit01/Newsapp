@@ -9,9 +9,9 @@ export default class Newsitem extends Component {
                     <div className="card" style={{width: "20rem"}}>
                         <img src={imageurl?imageurl:"https://static01.nyt.com/images/2021/12/12/fashion/11MARTINELLIS1/11MARTINELLIS1-facebookJumbo.jpg"} className="card-img-top" alt="..."/>
                             <div className="card-body">
-                            <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:'50%',zIndex:1}}>
+                            <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:'50%',zIndex:1}}>
                                 {source}
-                                <span class="visually-hidden">unread messages</span>
+                                <span className="visually-hidden">unread messages</span>
                             </span>
 
                                 <h5 className="card-title">{title}</h5>
