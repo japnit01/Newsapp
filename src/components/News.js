@@ -20,8 +20,8 @@ export default class News extends Component {
 
     articles = []
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
@@ -31,12 +31,14 @@ export default class News extends Component {
     }
 
     async Updatenews() {
+        this.props.setProgress(10)
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5458ca2e83094c7bb76d9b478586af0a&page=${this.state.page}&pagesize=${this.props.pagesize}`;
         this.setState({ loading: true })
         let data = await fetch(url)
         let parsedata = await data.json()
         console.log(parsedata.totalResults)
         this.setState({ articles: this.state.articles.concat(parsedata.articles), totalArticles: parsedata.totalResults})
+        this.props.setProgress(100)
     }
 
     async componentDidMount() {
